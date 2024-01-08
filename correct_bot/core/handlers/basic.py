@@ -13,7 +13,8 @@ async def get_inline(message: Message, bot: Bot):
     )
 
 
-async def get_start(message: Message, bot: Bot):
+async def get_start(message: Message, bot: Bot, counter: str):
+    await message.answer(f"Сообщение {counter}")
     await message.answer(
         f"Hi {message.from_user.first_name}. It's good to see you!",
         # select keyboard from keyboards/reply.py

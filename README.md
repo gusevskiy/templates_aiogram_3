@@ -1,15 +1,15 @@
-# RPA_telegram
+# Телеграм бот по [урокам](https://www.youtube.com/watch?v=lsnqWBLYZkw&list=PLRU2Gs7fnCuiwcEDU0AWGkSTawEQpLFPb&index=8) 
 
 ### Create python venv
 ```bash
 python -m venv venv && . venv/Scripts/activate
 pip install -r requirements.txt 
 ```
-### Create file .env
+### Create file input
 ```bash
-vim .env
+vim input
 ```
-#### add in .env TOKEN = "yor token telegram bot" 
+#### add in input TOKEN = "yor token telegram bot" 
 
 #### training materials
 [Exsample training aiogram3](https://mastergroosha.github.io/aiogram-3-guide/filters-and-middlewares/)
@@ -24,8 +24,5 @@ vim .env
 ## scheme
 ```mermaid
 graph TD
-    A[Бот получает \n файлы] --> B(Сохраняет в папку)
-    B --> C(файлы проверяются)
-    C --> D(обрабатываются) 
-    D --> F[возвращается файл \n с результатом]
+   
 ```
