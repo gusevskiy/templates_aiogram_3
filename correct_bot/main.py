@@ -15,6 +15,8 @@ from core.utils.callbackdata import MacInfo
 from core.handlers.pay import order, pre_checkout_query, succeful_payment, shipping_check
 from core.middlewares.countermiddleware import CounterMiddleware
 from core.middlewares.officehours import OfficeHoursMiddleware
+from core.handlers import form
+from core.utils.statesform import StepsForm
 
 
 async def start_bot(bot: Bot):
@@ -39,6 +41,11 @@ async def start():
     dp.update.middleware.register(OfficeHoursMiddleware())
     dp.startup.register(start_bot)
     dp.shutdown.register(stop_bot)
+    dp.message.register(form.get_form, Command(commands='form'))
+    dp.message.register(form.get_name, StepsForm.GET_NAME)
+    dp.message.register(form.get_last_name, StepsForm.GET_LAST_NAME)
+    dp.message.register(form.get_age, StepsForm.GET_AGE)
+
     dp.message.register(order, Command(commands='pay'))
     dp.pre_checkout_query.register(pre_checkout_query)
     dp.message.register(succeful_payment, F.succeful_payment)
