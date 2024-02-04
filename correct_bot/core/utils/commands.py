@@ -3,6 +3,7 @@ from aiogram.types import BotCommand, BotCommandScopeDefault
 
 
 async def set_commands(bot: Bot):
+    """button commands MENU /start, /help and td."""
     commands = [
         BotCommand(
             command='start',

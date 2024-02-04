@@ -12,7 +12,12 @@ from core.handlers.basic import get_location
 from core.handlers.basic import get_inline
 from core.handlers.callback import select_macbook
 from core.utils.callbackdata import MacInfo
-from core.handlers.pay import order, pre_checkout_query, succeful_payment, shipping_check
+from core.handlers.pay import (
+    order,
+    pre_checkout_query,
+    succeful_payment,
+    shipping_check
+)
 from core.middlewares.countermiddleware import CounterMiddleware
 from core.middlewares.officehours import OfficeHoursMiddleware
 from core.handlers import form
@@ -29,10 +34,11 @@ async def stop_bot(bot: Bot):
 
 
 async def start():
-    logging.basicConfig(level=logging.INFO,
-                        format="%(asctime)s - [%(levelname)s] - %(name)s - "
-                        "(%(filename)s).%(funcName)s(%(lineno)d) - %(message)s"
-                        )
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s - [%(levelname)s] - %(name)s - "
+        "(%(filename)s).%(funcName)s(%(lineno)d) - %(message)s"
+    )
     # parse_mode = 'HTML' для выделения сообщений шрифтом.
     bot = Bot(token=settings.bots.bot_token, parse_mode='HTML')
     dp = Dispatcher()
